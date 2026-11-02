@@ -106,6 +106,7 @@ h3{font-family:var(--f-display); font-weight:700; font-size:18px; letter-spacing
 .kv dt{color:var(--muted)} .kv dd{margin:0; min-width:0}
 
 .btns{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px}
+.btns.one{grid-template-columns:1fr}
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px;
   background:var(--ink); color:var(--bg); border:1px solid var(--ink)}
 .btn.sec{background:transparent; color:var(--ink); border-color:var(--line)}
@@ -348,7 +349,7 @@ const DAYS = {
       flag:"Arrive 30 to 40 min early to collect boarding passes.",
       notes:["Book both directions on Easybook or redBus in advance"]},
     {leave:"10:00", mode:"bus", how:"Bus TBS to Melaka Sentral", dur:"2 hr 15 min", eta:"12:15", title:"Arrive Melaka Sentral", q:"Melaka Sentral Bus Terminal", scene:"tbs", notes:["Grab into town from the terminal"]},
-    {leave:"12:15", mode:"grab", dur:"15 min", eta:"12:30", until:"13:45", title:"Lunch near Jonker Street", q:"Chung Wah Chicken Rice Ball, Melaka", scene:"jonkerday",
+    {leave:"12:15", mode:"grab", dur:"15 min", eta:"12:30", until:"13:45", title:"Lunch near Jonker Street", tt:"Chung Wah chicken rice ball Melaka", q:"Chung Wah Chicken Rice Ball, Melaka", scene:"jonkerday",
       subs:[["Chung Wah (chicken rice balls)","Chung Wah Chicken Rice Ball, Jalan Hang Jebat, Melaka"],["Nancy's Kitchen (Nyonya)","Nancy's Kitchen Melaka"]],
       notes:["Chung Wah usually has a queue, it moves fast","Nancy's Kitchen for Nyonya dishes"]},
     {leave:"13:45", mode:"walk", dur:"10 min", eta:"14:00", until:"16:00", title:"Dutch Square, Christ Church and St Paul's Hill", q:"Christ Church Melaka", scene:"trishaw",
@@ -489,11 +490,18 @@ function klNow(){
     return {date:`${g("year")}-${g("month")}-${g("day")}`, time:`${hh}:${g("minute")}`, min:(+hh)*60 + (+g("minute"))};
   }catch(e){ const d = new Date(); return {date:"", time:d.toTimeString().slice(0,5), min:d.getHours()*60+d.getMinutes()}; }
 }
-const navBtns = (q, link) => `<div class="btns">
+const TT = q => "https://www.tiktok.com/search?q=" + encodeURIComponent(q);
+const TTI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>';
+const navBtns = (q, link, tt) => `<div class="btns${tt ? "" : " one"}">
   <a class="btn" href="${esc(link || NAV(q))}" target="_blank" rel="noopener">${I.go}Navigate</a>
-  <a class="btn sec" href="${esc(link || MAP(q))}" target="_blank" rel="noopener">${I.pin}Map</a></div>`;
+  ${tt ? `<a class="btn sec" href="${esc(TT(tt))}" target="_blank" rel="noopener">${TTI}TikTok</a>` : ""}</div>`;
 
 /* ---------- renderers ---------- */
+function ttName(it){
+  if (/apartment|Check out|Collect bags|Check in|Arrive|Back to|TBS bus|KL Sentral|KLIA/.test(it.title)) return "";
+  const base = it.title.replace(/\(.*?\)/g,"").replace(/^(Breakfast at|Lunch near|Sunset dinner at|Dinner at)\s+/,"").trim();
+  return base + (/Melaka|Jonker|Dutch|Christ|Chow Kit/.test(it.title + it.q) && !/Chow Kit/.test(it.title) ? " Melaka" : " Kuala Lumpur");
+}
 function renderStop(it, idx){
   let leg = "";
   if (it.leave){
@@ -516,7 +524,7 @@ function renderStop(it, idx){
         ${it.until ? `<div class="meta"><span>Until ${it.until}</span></div>` : ""}
         ${flag}${subs}${notes}
         ${it.jump ? `<button type="button" class="seeopts" data-jump="${it.jump}">See night options ${I.chev}</button>` : ""}
-        ${it.jump ? "" : navBtns(it.q, it.link)}
+        ${it.jump ? "" : navBtns(it.q, it.link, it.tt || ttName(it))}
       </div>
     </article></div>`;
 }
@@ -527,7 +535,7 @@ function renderOptions(o, i){
       <div class="art">${art(sc, n)}</div>
       <div class="ot"><b>${esc(n)}</b><span>${esc(v)}</span><em>${esc(t)}</em></div>
       <div class="acts"><a href="${esc(NAV(q))}" target="_blank" rel="noopener" aria-label="Navigate to ${esc(n)}">${I.go}Go</a>
-      <a href="${esc(MAP(q))}" target="_blank" rel="noopener" aria-label="View ${esc(n)} on Maps">${I.pin}Map</a></div>
+      <a href="${esc(TT(q))}" target="_blank" rel="noopener" aria-label="Search ${esc(n)} on TikTok">${TTI}TikTok</a></div>
     </div>`).join("")}</div></details>`;
 }
 function renderDay(d){
@@ -565,7 +573,7 @@ function renderOverview(){
           <dt>Check-out</dt><dd>Sunday 8 November, before 11:00</dd>
           <dt>Sunday night</dt><dd>Hanson, Yordan and Alafson need a separate booking</dd>
         </dl>
-        ${navBtns(HOTEL_Q, null)}
+        ${navBtns(HOTEL_Q, null, "Continew Residence KL Infini Suites")}
       </div>
     </div>
 
