@@ -105,8 +105,8 @@ h3{font-family:var(--f-display); font-weight:700; font-size:18px; letter-spacing
 .kv{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:10px 0 0; font-size:14px}
 .kv dt{color:var(--muted)} .kv dd{margin:0; min-width:0}
 
-.btns{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-.btn{display:inline-flex; align-items:center; gap:7px; min-height:44px; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px;
+.btns{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px;
   background:var(--ink); color:var(--bg); border:1px solid var(--ink)}
 .btn.sec{background:transparent; color:var(--ink); border-color:var(--line)}
 .btn svg{width:16px; height:16px; flex:none}
@@ -138,7 +138,7 @@ h3{font-family:var(--f-display); font-weight:700; font-size:18px; letter-spacing
 .leg{display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:center; position:relative; padding:4px 0}
 .leg::before{content:""; position:absolute; left:27px; top:0; bottom:0; border-left:2px dashed color-mix(in srgb, var(--day) 55%, var(--line))}
 .leg .lt{position:relative; z-index:1; justify-self:center; font-family:var(--f-mono); font-weight:700; font-size:12px; background:var(--bg); padding:2px 0; color:var(--day); text-align:center; line-height:1.15; font-variant-numeric:tabular-nums}
-.leg .lt small{display:block; font-size:10px; letter-spacing:.1em; color:var(--muted); font-weight:500}
+.leg .lt small{display:block; font-size:11px; letter-spacing:.1em; color:var(--muted); font-weight:500}
 .leg .lb{display:flex; align-items:center; gap:8px; font-size:14px; color:var(--ink); min-width:0; padding:6px 0}
 .leg .lb svg{width:18px; height:18px; color:var(--day); flex:none}
 .leg .lb b{color:var(--ink); font-weight:600}
@@ -149,7 +149,7 @@ h3{font-family:var(--f-display); font-weight:700; font-size:18px; letter-spacing
 .stop .st{position:relative; z-index:1; justify-self:center; text-align:center; padding-top:12px}
 .stop .st .pin{width:14px; height:14px; border-radius:50%; background:var(--day); border:3px solid var(--bg); box-shadow:0 0 0 2px var(--day); margin:0 auto 6px}
 .stop .st b{display:block; font-family:var(--f-mono); font-size:14px; font-weight:700; font-variant-numeric:tabular-nums}
-.stop .st small{display:block; font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; color:var(--muted)}
+.stop .st small{display:block; font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; color:var(--muted)}
 .card{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; margin:4px 0; min-width:0}
 .card .art{aspect-ratio:16/10; max-width:100%}
 .card .band{height:6px; background:var(--day)}
@@ -158,8 +158,9 @@ h3{font-family:var(--f-display); font-weight:700; font-size:18px; letter-spacing
 .card .meta span{font-variant-numeric:tabular-nums}
 .card ul{margin:10px 0 0; padding-left:18px; font-size:14px; display:grid; gap:4px}
 .card ul li::marker{color:var(--day)}
-.subs{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
-.subs a{display:inline-flex; align-items:center; gap:5px; padding:6px 10px; border-radius:10px; background:var(--surface2); text-decoration:none; font-size:13px; font-weight:600}
+.subs{display:flex; gap:6px; margin:10px -14px 0; padding:0 14px 2px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-padding:0 14px}
+.subs::-webkit-scrollbar{display:none}
+.subs a{flex:none; white-space:nowrap; display:inline-flex; align-items:center; gap:5px; min-height:40px; padding:6px 12px; border-radius:10px; background:var(--surface2); text-decoration:none; font-size:13px; font-weight:600}
 .subs a svg{width:13px; height:13px; color:var(--day)}
 .flag{display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:6px 10px; border-radius:10px; font-size:13px; font-weight:600;
   background:color-mix(in srgb, var(--saffron) 18%, transparent); color:var(--ink)}
@@ -184,7 +185,7 @@ details.opts summary small{display:block; color:var(--muted); font-size:13px; fo
 .opt .ot b{display:block; font-size:14px; line-height:1.25}
 .opt .ot span{display:block; font-size:13.5px; color:var(--muted); margin-top:3px; line-height:1.35}
 .opt .ot em{font-style:normal; font-family:var(--f-mono); font-size:11px; color:var(--day); display:block; margin-top:6px}
-.opt .acts{display:grid; grid-template-columns:1.3fr 1fr; gap:6px; padding:10px}
+.opt .acts{display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:10px}
 .opt .acts a{display:flex; align-items:center; justify-content:center; gap:5px; min-height:44px; border-radius:10px; text-decoration:none; font-size:13px; font-weight:700; background:var(--surface2); color:var(--ink)}
 .opt .acts a:first-child{background:var(--ink); color:var(--bg)}
 .opt .acts a svg{width:14px; height:14px}
@@ -200,7 +201,7 @@ details.opts summary small{display:block; color:var(--muted); font-size:13px; fo
 .checks{display:grid; background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden}
 .check{display:grid; grid-template-columns:28px 1fr; gap:12px; padding:12px 14px; border-top:1px solid var(--line); align-items:start}
 .check:first-child{border-top:0}
-.check input{appearance:none; -webkit-appearance:none; width:24px; height:24px; border-radius:7px; border:2px solid var(--line); background:var(--surface); margin:1px 0 0; display:grid; place-items:center; cursor:pointer}
+.check input{appearance:none; -webkit-appearance:none; width:24px; height:24px; border-radius:7px; border:2px solid var(--muted); background:var(--surface); margin:1px 0 0; display:grid; place-items:center; cursor:pointer}
 .check input:checked{background:var(--teal); border-color:var(--teal)}
 .check input:checked::after{content:""; width:6px; height:11px; border:solid var(--surface); border-width:0 2.5px 2.5px 0; transform:rotate(45deg) translate(-1px,-1px)}
 .check label{cursor:pointer; min-width:0}
@@ -221,8 +222,17 @@ details.opts summary small{display:block; color:var(--muted); font-size:13px; fo
 .progress{height:8px; border-radius:99px; background:var(--surface2); overflow:hidden}
 .progress i{display:block; height:100%; background:var(--teal); width:0; transition:width .3s}
 
-.jump{position:fixed; z-index:15; right:max(16px, env(safe-area-inset-right, 0px)); bottom:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 14px);
-  min-height:44px; padding:10px 16px; border:0; border-radius:999px; background:var(--accent); color:#fff; font:700 14px var(--f-body); box-shadow:0 6px 18px rgba(0,0,0,.25); cursor:pointer}
+.upnext{position:fixed; z-index:15; left:max(12px, env(safe-area-inset-left, 0px)); right:max(12px, env(safe-area-inset-right, 0px)); bottom:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 10px);
+  max-width:536px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:8px; padding:8px; border-radius:18px; background:var(--ink); color:var(--bg); box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.upnext[hidden]{display:none!important}
+.un-main{display:grid; text-align:left; gap:1px; min-width:0; background:none; border:0; color:inherit; padding:4px 8px; cursor:pointer; font:inherit}
+.un-k{font-family:var(--f-mono); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent)}
+.un-t{font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.un-s{font-size:13px; opacity:.75; font-variant-numeric:tabular-nums}
+.un-go{display:grid; place-items:center; width:48px; height:48px; border-radius:14px; background:var(--accent); color:#fff; align-self:center}
+body.has-un{padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 100px)}
+.seeopts{display:inline-flex; align-items:center; gap:6px; margin-top:12px; min-height:44px; padding:10px 16px; border-radius:12px; border:1px solid var(--line); background:var(--surface2); color:var(--ink); font:700 14px var(--f-body); cursor:pointer}
+.seeopts svg{width:16px; height:16px}
 .foot{margin-top:28px; font-size:12px; color:var(--muted); text-align:center}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 @media (min-width:600px){ .tips{grid-template-columns:repeat(4,1fr)} }
@@ -238,7 +248,7 @@ details.opts summary small{display:block; color:var(--muted); font-size:13px; fo
 </header>
 
 <main class="wrap" id="app"></main>
-<button type="button" class="jump" id="jump" hidden>Jump to now</button>
+<div class="upnext" id="jump" hidden><button type="button" class="un-main" id="unmain"><span class="un-k" id="unk">Up next</span><span class="un-t" id="unt"></span><span class="un-s" id="uns"></span></button><a class="un-go" id="ungo" href="#" target="_blank" rel="noopener" aria-label="Navigate"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg></a></div>
 
 <nav class="nav" aria-label="Trip sections">
   <div class="nav-in" id="nav"></div>
@@ -284,7 +294,7 @@ function windows(x,y,cols,rows,gx,gy,f){let s="";for(let i=0;i<cols;i++)for(let 
 function tower(x,base,f){return R(x,base-78,22,78,f)+R(x+3,base-90,16,12,f)+R(x+6,base-100,10,10,f)+R(x+9,base-112,4,12,f)+R(x+10.5,base-126,1,14,f);}
 function skyline(f,base){return R(10,base-30,26,30,f)+R(40,base-46,18,46,f)+R(62,base-24,30,24,f)+R(96,base-56,20,56,f)+R(230,base-50,22,50,f)+R(256,base-34,30,34,f)+R(290,base-60,16,60,f)+R(310,base-28,40,28,f);}
 const PHO = window.PH || {};
-const art = k => { const p = PHO[k]; if (!p) return ""; return `<img src="${p.src}" alt="" loading="lazy" decoding="async">`; };
+const art = (k, alt) => { const p = PHO[k]; if (!p) return ""; return `<img src="${p.src}" alt="${esc(alt||"")}" loading="lazy" decoding="async">`; };
 const hasPh = k => !!PHO[k];
 const gallery = ks => `<div class="art gal"><div class="gtrack">${ks.map(k=>`<div class="gslide">${art(k)}</div>`).join("")}</div>
   <span class="gcount">1/${ks.length}</span><div class="gdots">${ks.map((k,i)=>`<button type="button" class="${i?"":"on"}" data-i="${i}" aria-label="Photo ${i+1} of ${ks.length}"></button>`).join("")}</div></div>`;
@@ -312,7 +322,7 @@ const DAYS = {
     {leave:"18:00", mode:"walk", dur:"10 min", eta:"18:10", until:"20:15", title:"Sunset dinner at Anjum KLCC", link:ANJUM, q:"Anjum KLCC, Permata Sapura, Jalan Pinang, Kuala Lumpur", scene:"anjum",
       flag:"Book an outdoor table for 5 in advance.",
       notes:["Level 6, Permata Sapura Tower, Jalan Pinang. Open daily 12:00 to 02:00","Sunset is around 19:00, then the towers light up","Arab and western menu, shareable portions"]},
-    {leave:"20:15", mode:"walk", how:"Depends on the night option you pick", dur:"5 to 20 min", eta:"20:30", until:"23:00", title:"Night out (choose below)", q:"Jalan Alor, Kuala Lumpur", scene:"bbnight",
+    {leave:"20:15", mode:"walk", how:"Depends on the night option you pick", dur:"5 to 20 min", eta:"20:30", until:"23:00", title:"Night out (choose below)", jump:"opts-0", q:"Jalan Alor, Kuala Lumpur", scene:"bbnight",
       notes:["Two easy clusters: Bukit Bintang (Jalan Alor, Changkat, Pavilion) or Kampung Baru loop (Saloma Bridge, night food)"]},
     {leave:"23:00", mode:"grab", dur:"10 to 20 min", eta:"23:20", title:"Back to the apartment", q:HOTEL_Q, scene:"hotel", notes:["Early start tomorrow. Leave at 07:10"]}
    ]}],
@@ -481,7 +491,7 @@ function klNow(){
 }
 const navBtns = (q, link) => `<div class="btns">
   <a class="btn" href="${esc(link || NAV(q))}" target="_blank" rel="noopener">${I.go}Navigate</a>
-  <a class="btn sec" href="${esc(link || MAP(q))}" target="_blank" rel="noopener">${I.pin}View on Maps</a></div>`;
+  <a class="btn sec" href="${esc(link || MAP(q))}" target="_blank" rel="noopener">${I.pin}Map</a></div>`;
 
 /* ---------- renderers ---------- */
 function renderStop(it, idx){
@@ -496,34 +506,35 @@ function renderStop(it, idx){
   const flag = it.flag ? `<div class="flag">${I.warn}<span>${esc(it.flag)}</span></div>` : "";
   const notes = it.notes && it.notes.length ? `<ul>${it.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>` : "";
   const start = toMin(it.leave || it.eta), end = toMin(it.until) ?? (toMin(it.eta) + 20);
-  return `${leg}<div class="stop" data-start="${start}" data-end="${end}">
+  return `${leg}<div class="stop" data-start="${start}" data-end="${end}" data-title="${esc(it.title)}" data-leave="${it.leave||it.eta}" data-until="${it.until||""}" data-nav="${esc(it.link || NAV(it.q))}">
     <div class="st"><div class="pin"></div><small>ETA</small><b>${it.eta}</b></div>
     <article class="card">
-      ${it.gallery ? gallery(it.gallery) : hasPh(it.scene) ? `<div class="art">${art(it.scene)}</div>` : `<div class="band"></div>`}
+      ${it.gallery ? gallery(it.gallery) : hasPh(it.scene) ? `<div class="art">${art(it.scene, it.title)}</div>` : `<div class="band"></div>`}
       <div class="body">
         <div class="nowtag">Happening now</div>
         <h3>${esc(it.title)}</h3>
         ${it.until ? `<div class="meta"><span>Until ${it.until}</span></div>` : ""}
         ${flag}${subs}${notes}
-        ${navBtns(it.q, it.link)}
+        ${it.jump ? `<button type="button" class="seeopts" data-jump="${it.jump}">See night options ${I.chev}</button>` : ""}
+        ${it.jump ? "" : navBtns(it.q, it.link)}
       </div>
     </article></div>`;
 }
-function renderOptions(o){
-  return `<details class="opts" ${o.open ? "open" : ""}>
+function renderOptions(o, i){
+  return `<details class="opts" id="opts-${i}" ${o.open ? "open" : ""}>
     <summary><div><h3>${esc(o.title)}</h3><small>${esc(o.sub)}</small></div><span class="chev">${I.chev}</span></summary>
     <div class="optlist">${o.items.map(([n,v,t,q,sc])=>`<div class="opt">
-      <div class="art">${art(sc)}</div>
+      <div class="art">${art(sc, n)}</div>
       <div class="ot"><b>${esc(n)}</b><span>${esc(v)}</span><em>${esc(t)}</em></div>
-      <div class="acts"><a href="${esc(NAV(q))}" target="_blank" rel="noopener" aria-label="Navigate to ${esc(n)}">${I.go}Navigate</a>
-      <a href="${esc(MAP(q))}" target="_blank" rel="noopener" aria-label="View ${esc(n)} on Maps">${I.pin}Maps</a></div>
+      <div class="acts"><a href="${esc(NAV(q))}" target="_blank" rel="noopener" aria-label="Navigate to ${esc(n)}">${I.go}Go</a>
+      <a href="${esc(MAP(q))}" target="_blank" rel="noopener" aria-label="View ${esc(n)} on Maps">${I.pin}Map</a></div>
     </div>`).join("")}</div></details>`;
 }
 function renderDay(d){
   const groups = d.groups.map(g => `${g.title ? `<div class="group-title"><h2>${esc(g.title)}</h2><span class="line"></span></div>` : ""}
     <div class="route">${g.items.map(renderStop).join("")}</div>`).join("");
   const notes = (d.notes||[]).map(n=>`<div class="note"><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></div>`).join("");
-  const opts = (d.options||[]).map(renderOptions).join("");
+  const opts = (d.options||[]).map((o,i)=>renderOptions(o,i)).join("");
   return `<section class="view" style="--day:var(${d.color})">
     <div class="dayhead">
       <span class="daytag">Day ${{fri:1,sat:2,sun:3}[d.key]} · ${esc(d.label)}</span>
@@ -647,7 +658,7 @@ function markNow(){
   ck.innerHTML = `KL time<br><b>${n.time}</b>`;
   const v = (location.hash||"").replace("#","") || defaultView();
   const d = DAYS[v], jb = document.getElementById("jump");
-  jb.hidden = true;
+  jb.hidden = true; document.body.classList.remove("has-un");
   if (!d || d.date !== n.date) return null;
   let target = null, next = null;
   document.querySelectorAll(".stop").forEach(s=>{
@@ -658,11 +669,20 @@ function markNow(){
     if (isNow && !target) target = s;
     if (!next && a > n.min) next = s;
   });
+  const isNow = !!target;
   target = target || next;
-  if (target){ jb.hidden = false; jb.textContent = target.classList.contains("now") ? "Jump to now" : "Jump to next stop"; jb._t = target; }
+  document.body.classList.toggle("has-un", !!target);
+  if (target){
+    jb.hidden = false; jb._t = target;
+    document.getElementById("unk").textContent = isNow ? "Now" : "Up next";
+    document.getElementById("unt").textContent = target.dataset.title;
+    document.getElementById("uns").textContent = isNow ? (target.dataset.until ? "Until " + target.dataset.until : "") : "Leave " + target.dataset.leave;
+    document.getElementById("ungo").href = target.dataset.nav;
+  }
   return target;
 }
-document.getElementById("jump").addEventListener("click", e=>{ const t = e.currentTarget._t; if (t) t.scrollIntoView({behavior:"smooth", block:"center"}); });
+document.getElementById("unmain").addEventListener("click", ()=>{ const t = document.getElementById("jump")._t; if (t) t.scrollIntoView({behavior:"smooth", block:"center"}); });
+document.addEventListener("click", e=>{ const b = e.target.closest(".seeopts"); if (!b) return; const d = document.getElementById(b.dataset.jump); if (d){ d.open = true; d.scrollIntoView({behavior:"smooth", block:"start"}); } });
 document.addEventListener("click", e=>{
   const b = e.target.closest(".gdots button"); if (!b) return;
   const tr = b.closest(".gal").querySelector(".gtrack");
